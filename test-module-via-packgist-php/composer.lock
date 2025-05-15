@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bea856ae433d969705b87d6f76f159fa",
+    "packages": [
+        {
+            "name": "yourvendor/mypackage",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ridipblog/my-package.git",
+                "reference": "85d1f3a42664b9bcd63b02c440ced474e086ed75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ridipblog/my-package/zipball/85d1f3a42664b9bcd63b02c440ced474e086ed75",
+                "reference": "85d1f3a42664b9bcd63b02c440ced474e086ed75",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YourVendor\\MyPackage\\MyPackageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YourVendor\\MyPackage\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A sample PHP package",
+            "support": {
+                "source": "https://github.com/ridipblog/my-package/tree/v1.0.0",
+                "issues": "https://github.com/ridipblog/my-package/issues"
+            },
+            "time": "2025-05-15T09:49:43+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

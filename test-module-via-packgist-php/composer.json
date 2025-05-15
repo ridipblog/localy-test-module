@@ -1,0 +1,15 @@
+{
+    "name": "yourname/test-module-via-packgist-php",
+    "description": "Test project using via github repo",
+    "require": {
+        "yourvendor/mypackage": "^1.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ridipblog/my-package.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+  }
