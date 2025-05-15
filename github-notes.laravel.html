@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Step-by-Step Guide: Use Your Laravel Package via GitHub</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+  body {
+    background: #f8f9fa;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .container {
+    max-width: 900px;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  }
+  h1 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #0d6efd;
+  }
+  pre {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  hr {
+    border-top: 3px solid #0d6efd;
+  }
+  .step-title {
+    color: #0d6efd;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+  .code-block {
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-center">Step-by-Step Guide: Use Your Laravel Package via GitHub</h1>
+  <hr />
+
+  <section>
+    <h2 class="step-title">Step 1: Prepare Your Package Locally</h2>
+    <ol>
+      <li>Create your package folder, e.g. <code>my-package/</code></li>
+      <li>Inside <code>my-package/</code>, create a <code>composer.json</code> file with content:</li>
+    </ol>
+    <pre><code class="code-block">{
+  "name": "yourvendor/my-package",
+  "description": "My Laravel package",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "YourVendor\\MyPackage\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "YourVendor\\MyPackage\\MyPackageServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}</code></pre>
+    <ol start="3">
+      <li>Add your package source files under <code>src/</code>, for example:
+        <ul>
+          <li><code>src/MyPackage.php</code></li>
+          <li><code>src/MyPackageServiceProvider.php</code></li>
+        </ul>
+      </li>
+      <li>Run inside <code>my-package/</code>: <code>composer dump-autoload</code></li>
+    </ol>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2 class="step-title">Step 2: Initialize Git and Push to GitHub</h2>
+    <ol>
+      <li>Inside <code>my-package/</code> folder, run:
+        <pre><code class="code-block">git init
+git add .
+git commit -m "Initial commit"</code></pre>
+      </li>
+      <li>Create a GitHub repo: <a href="https://github.com/yourusername/my-package" target="_blank">https://github.com/yourusername/my-package</a></li>
+      <li>Link local repo and push:
+        <pre><code class="code-block">git remote add origin https://github.com/yourusername/my-package.git
+git push -u origin master</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2 class="step-title">Step 3: Create a Version Tag (Optional but Recommended)</h2>
+    <ol>
+      <li>Tag your version locally:
+        <pre><code class="code-block">git tag v1.0.0</code></pre>
+      </li>
+      <li>Push tags to GitHub:
+        <pre><code class="code-block">git push origin --tags</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2 class="step-title">Step 4: Use Your Package in a Laravel Project</h2>
+    <ol>
+      <li>In your Laravel project folder, open <code>composer.json</code> and add:
+        <pre><code class="code-block">"repositories": [
+  {
+    "type": "vcs",
+    "url": "https://github.com/yourusername/my-package.git"
+  }
+],
+"require": {
+  "yourvendor/my-package": "^1.0"
+},
+"minimum-stability": "dev",
+"prefer-stable": true</code></pre>
+      </li>
+      <li>Run:
+        <pre><code class="code-block">composer update yourvendor/my-package
+# or
+composer require yourvendor/my-package</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2 class="step-title">Step 5: Use Your Package in Laravel</h2>
+    <ul>
+      <li>Your package’s service provider will be auto-discovered if <code>extra > laravel > providers</code> is set in <code>composer.json</code></li>
+      <li>Use package classes in routes or controllers, for example:
+        <pre><code class="code-block">use YourVendor\MyPackage\MyPackage;
+
+Route::get('/test', function (MyPackage $pkg) {
+    return $pkg->hello();
+});</code></pre>
+      </li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <h2 class="step-title">Summary</h2>
+    <ul>
+      <li>Create package with proper <code>composer.json</code></li>
+      <li>Push package to GitHub repo</li>
+      <li>Tag releases for versioning</li>
+      <li>Add GitHub repo in Laravel project <code>composer.json</code> repositories</li>
+      <li>Require your package via Composer by name and version</li>
+      <li>Use package normally in Laravel project</li>
+    </ul>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
