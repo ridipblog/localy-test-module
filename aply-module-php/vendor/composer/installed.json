@@ -1,0 +1,38 @@
+{
+    "packages": [
+        {
+            "name": "yourvendor/mypackage",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./my-package",
+                "reference": "33e166aa80122b6966dbc61fcf84b5681caee001"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YourVendor\\MyPackage\\MyPackageServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "YourVendor\\MyPackage\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A sample PHP package",
+            "transport-options": {
+                "relative": true
+            },
+            "install-path": "../yourvendor/mypackage"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

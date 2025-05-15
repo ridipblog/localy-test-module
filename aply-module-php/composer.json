@@ -1,0 +1,15 @@
+{
+    "name": "yourname/aply-module-php",
+    "description": "Test project using a local package",
+    "require": {
+      "yourvendor/mypackage": "@dev"
+    },
+    "repositories": [
+      {
+        "type": "path",
+        "url": "./my-package"
+      }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+  }

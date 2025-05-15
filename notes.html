@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laravel Package Setup Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .step-title {
+      background-color: #0d6efd;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 30px;
+    }
+
+    .code-block {
+      background-color: #212529;
+      color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">🧰 Laravel Local Package Setup Guide</h1>
+
+    <div class="step-title">📦 STEP 1: Create the Package</div>
+    <ol>
+      <li>Create a folder: <strong>my-package/</strong></li>
+      <li>Inside it, run: <code>composer init</code></li>
+      <li>Edit <code>composer.json</code> like this:</li>
+    </ol>
+    <div class="code-block">
+      {
+      "name": "yourvendor/mypackage",
+      "description": "My local Laravel package",
+      "type": "library",
+      "autoload": {
+      "psr-4": {
+      "YourVendor\\MyPackage\\": "src/"
+      }
+      },
+      "extra": {
+      "laravel": {
+      "providers": [
+      "YourVendor\\MyPackage\\MyPackageServiceProvider"
+      ]
+      }
+      },
+      "minimum-stability": "dev",
+      "prefer-stable": true
+      }
+    </div>
+    <p>Create these files in <code>my-package/src/</code>:</p>
+    <ul>
+      <li>MyPackage.php</li>
+      <li>MyPackageServiceProvider.php</li>
+    </ul>
+    <p>MyPackage.php:</p>
+    <div class="code-block">
+      <?php
+namespace YourVendor\MyPackage;
+class MyPackage {
+  public function hello() {
+    return "Hello from MyPackage!";
+  }
+}
+  </div>
+  <p>MyPackageServiceProvider.php:</p>
+  <div class="code-block">
+<?php
+namespace YourVendor\MyPackage;
+use Illuminate\Support\ServiceProvider;
+class MyPackageServiceProvider extends ServiceProvider {
+  public function register() {
+    $this->app->singleton(MyPackage::class, function () {
+      return new MyPackage();
+    });
+  }
+  public function boot() {
+    // Optional boot logic
+  }
+}
+  </div>
+  <p>Then run in <code>my-package/</code>:</p>
+  <div class="code-block">composer dump-autoload</div>
+
+  <div class="step-title">🚀 STEP 2: Use the Package in Laravel App</div>
+  <ol>
+    <li>Project structure:</li>
+  </ol>
+  <div class="code-block">
+localy-test-module/
+├── apply-module/      ← Laravel project
+└── my-package/        ← Your package
+  </div>
+  <ol start="2">
+    <li>In <code>apply-module/composer.json</code>, add:</li>
+  </ol>
+  <p>Repositories section:</p>
+  <div class="code-block">
+"repositories": [
+  {
+    "type": "path",
+    "url": "../my-package"
+  }
+]</div>
+  <p>Require section:</p>
+  <div class="code-block">
+"yourvendor/mypackage": "@dev"
+  </div>
+  <p>Then run in <code>apply-module/</code>:</p>
+  <div class="code-block">composer require yourvendor/mypackage:@dev</div>
+  <p>Test it with this route in <code>routes/web.php</code>:</p>
+  <div class="code-block">
+use YourVendor\MyPackage\MyPackage;
+
+Route::get('/test-package', function (MyPackage $pkg) {
+  return $pkg->hello();
+});
+  </div>
+  <p>Visit:</p>
+  <div class="code-block">http://localhost:8000/test-package</div>
+  <p>If needed, run:</p>
+  <div class="code-block">
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+  </div>
+  <div class="alert alert-success mt-4">✅ DONE! You now have a working local Laravel package!</div>
+</div>
+</body>
+</html>
