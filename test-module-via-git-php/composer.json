@@ -1,5 +1,5 @@
 {
-    "name": "yourname/test-module-via-packgist-php",
+    "name": "yourname/test-module-via-git-php",
     "description": "Test project using via github repo",
     "require": {
         "yourvendor/mypackage": "^1.0"

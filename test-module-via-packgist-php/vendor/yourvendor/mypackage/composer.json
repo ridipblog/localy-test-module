@@ -1,0 +1,20 @@
+{
+    "name": "yourvendor/mypackage",
+    "description": "A sample PHP package",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+      "psr-4": {
+        "YourVendor\\MyPackage\\": "src/"
+      }
+    },
+    "require": {},
+    "extra": {
+      "laravel": {
+        "providers": [
+          "YourVendor\\MyPackage\\MyPackageServiceProvider"
+        ]
+      }
+    }
+  }
+  

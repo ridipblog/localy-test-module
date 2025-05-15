@@ -1,0 +1,47 @@
+{
+    "packages": [
+        {
+            "name": "yourvendor/mypackage",
+            "version": "v1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ridipblog/my-package.git",
+                "reference": "85d1f3a42664b9bcd63b02c440ced474e086ed75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ridipblog/my-package/zipball/85d1f3a42664b9bcd63b02c440ced474e086ed75",
+                "reference": "85d1f3a42664b9bcd63b02c440ced474e086ed75",
+                "shasum": ""
+            },
+            "time": "2025-05-15T09:49:43+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YourVendor\\MyPackage\\MyPackageServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "YourVendor\\MyPackage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A sample PHP package",
+            "support": {
+                "issues": "https://github.com/ridipblog/my-package/issues",
+                "source": "https://github.com/ridipblog/my-package/tree/v1.0.0"
+            },
+            "install-path": "../yourvendor/mypackage"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
