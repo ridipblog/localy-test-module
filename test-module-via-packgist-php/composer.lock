@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "455b8f6e7998fd04cff4447027f8d4b3",
+    "content-hash": "6aec0c49022f594591f1a0e982889469",
     "packages": [
         {
             "name": "yourvendor/mypackage",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ridipblog/my-package.git",
-                "reference": "85d1f3a42664b9bcd63b02c440ced474e086ed75"
+                "reference": "2c6f535b6729cde6f372846edd427dcc4da8ee77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ridipblog/my-package/zipball/85d1f3a42664b9bcd63b02c440ced474e086ed75",
-                "reference": "85d1f3a42664b9bcd63b02c440ced474e086ed75",
+                "url": "https://api.github.com/repos/ridipblog/my-package/zipball/2c6f535b6729cde6f372846edd427dcc4da8ee77",
+                "reference": "2c6f535b6729cde6f372846edd427dcc4da8ee77",
                 "shasum": ""
             },
             "type": "library",
@@ -40,9 +40,9 @@
             "description": "A sample PHP package",
             "support": {
                 "issues": "https://github.com/ridipblog/my-package/issues",
-                "source": "https://github.com/ridipblog/my-package/tree/v1.0.0"
+                "source": "https://github.com/ridipblog/my-package/tree/v1.1.0"
             },
-            "time": "2025-05-15T09:49:43+00:00"
+            "time": "2025-05-15T14:31:44+00:00"
         }
     ],
     "packages-dev": [],

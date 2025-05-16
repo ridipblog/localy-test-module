@@ -1,5 +1,5 @@
 {
     "require": {
-        "yourvendor/mypackage": "^1.0"
+        "yourvendor/mypackage": "^1.1"
     }
 }
